@@ -17,9 +17,6 @@
         height: 300px;
         background-color: grey;
     }
-    #gocardless-legal-notice {
-        background-color: red;
-    }
 </style>
 <body>
     <script type="module">
@@ -31,5 +28,14 @@
     <div class="integration-content"></div>
     <gocardless-cpp-compliance></gocardless-cpp-compliance>
     <a href="./index.html"> Back -> </a>
+    <script>
+        // override styles
+        setTimeout(() => {
+            let styles = new CSSStyleSheet
+            styles.replaceSync( `#gocardless-legal-notice { background-color: red }`)
+            document.querySelector("gocardless-cpp-compliance").shadowRoot.adoptedStyleSheets = [ styles ] 
+
+        }, 1000)
+    </script>
 </body>
 </html>
